@@ -1,10 +1,10 @@
 // Header.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { Styled } from "./styled";
-import transparentLogo from "/images/transparentLogo.png";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 const THEME_KEY = "app-theme";
+const logo = `${import.meta.env.BASE_URL}logo.png`;
 
 const Header = () => {
     const [logoLoaded, setLogoLoaded] = useState(false);
@@ -56,7 +56,7 @@ const Header = () => {
 
                             <img
                                 className={logoLoaded ? "logo loaded" : "logo"}
-                                src={transparentLogo}
+                                src={logo}
                                 alt="computerscience-core-notes"
                                 onLoad={() => setLogoLoaded(true)}
                                 loading="eager"
