@@ -192,7 +192,7 @@ hr {
 /* 11) Selection */
 ::selection {
     background: var(--color-primary);
-    color: #041014;
+    color: #0e0e0e;
 }
 
 /* 12) Focus visibility */

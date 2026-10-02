@@ -2,7 +2,7 @@
 
 A focused React and Vite revision workspace covering essential Computer Science fundamentals with clear mental models and practical subject notes.
 
-![Computer Science Core Notes screenshot](screenshot.png)
+![Computer Science Core Notes screenshot](./screenshot.jpg)
 
 ## Features
 
