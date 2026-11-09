@@ -18,7 +18,7 @@ import {
 } from "react-icons/fi";
 
 const OperatingSystems = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -605,7 +605,7 @@ const OperatingSystems = () => {
                 </button>
             </div>
 
-            <div id="os-content" className={open ? "content open" : "content"}>
+            <div id="os-content" className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}>
                 <div className="hintBar">
                     <FiClock className="hintIcon" />
                     <div className="hintText">

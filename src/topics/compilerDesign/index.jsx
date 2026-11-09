@@ -18,7 +18,7 @@ import {
 } from "react-icons/fi";
 
 const CompilerDesign = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -314,7 +314,7 @@ const CompilerDesign = () => {
                 </button>
             </div>
 
-            <div id="cd-content" className={open ? "content open" : "content"}>
+            <div id="cd-content" className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}>
                 <div className="hintBar">
                     <FiCpu className="hintIcon" />
                     <div className="hintText">

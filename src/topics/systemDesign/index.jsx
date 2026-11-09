@@ -22,7 +22,7 @@ import {
 } from "react-icons/fi";
 
 const SystemDesign = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -460,7 +460,7 @@ const SystemDesign = () => {
 
             <div
                 id="system-design-content"
-                className={open ? "content open" : "content"}
+                className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}
             >
                 <div className="hintBar">
                     <FiClock className="hintIcon" />

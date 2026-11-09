@@ -15,7 +15,7 @@ import {
 } from "react-icons/fi";
 
 const TheoryOfComputation = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -388,7 +388,7 @@ const TheoryOfComputation = () => {
                 </button>
             </div>
 
-            <div id="toc-content" className={open ? "content open" : "content"}>
+            <div id="toc-content" className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}>
                 <div className="hintBar">
                     <FiInfo className="hintIcon" />
                     <div className="hintText">

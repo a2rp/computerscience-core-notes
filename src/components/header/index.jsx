@@ -1,31 +1,27 @@
 // Header.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Styled } from "./styled";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 const THEME_KEY = "app-theme";
 const logo = `${import.meta.env.BASE_URL}logo.png`;
 
+const getInitialTheme = () => {
+    try {
+        const storedTheme = window.localStorage.getItem(THEME_KEY);
+        if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+    } catch {
+        // Storage can be unavailable in private or restricted browser contexts.
+    }
+
+    return window.matchMedia?.("(prefers-color-scheme: light)").matches
+        ? "light"
+        : "dark";
+};
+
 const Header = () => {
     const [logoLoaded, setLogoLoaded] = useState(false);
-    const [theme, setTheme] = useState("dark");
-
-    // Init theme once
-    useEffect(() => {
-        const storedTheme = localStorage.getItem(THEME_KEY);
-
-        if (storedTheme === "light" || storedTheme === "dark") {
-            setTheme(storedTheme);
-            return;
-        }
-
-        // Fallback to system preference if nothing stored
-        const prefersLight =
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: light)").matches;
-
-        setTheme(prefersLight ? "light" : "dark");
-    }, []);
+    const [theme, setTheme] = useState(getInitialTheme);
 
     // Apply theme + persist
     useEffect(() => {
@@ -35,12 +31,14 @@ const Header = () => {
             document.documentElement.removeAttribute("data-theme");
         }
 
-        localStorage.setItem(THEME_KEY, theme);
+        try {
+            window.localStorage.setItem(THEME_KEY, theme);
+        } catch {
+            // Keep theme switching available when storage is blocked.
+        }
     }, [theme]);
 
-    const nextTheme = useMemo(() => {
-        return theme === "light" ? "dark" : "light";
-    }, [theme]);
+    const nextTheme = theme === "light" ? "dark" : "light";
 
     const handleToggle = () => {
         setTheme(nextTheme);

@@ -15,7 +15,7 @@ import {
 } from "react-icons/fi";
 
 const ParallelComputing = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -347,7 +347,7 @@ const ParallelComputing = () => {
                 </button>
             </div>
 
-            <div id="pc-content" className={open ? "content open" : "content"}>
+            <div id="pc-content" className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}>
                 <div className="hintBar">
                     <FiCpu className="hintIcon" />
                     <div className="hintText">

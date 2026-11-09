@@ -18,7 +18,7 @@ import {
 } from "react-icons/fi";
 
 const ComputerNetworks = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -511,7 +511,7 @@ const ComputerNetworks = () => {
                 </button>
             </div>
 
-            <div id="cn-content" className={open ? "content open" : "content"}>
+            <div id="cn-content" className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}>
                 <div className="hintBar">
                     <FiCpu className="hintIcon" />
                     <div className="hintText">

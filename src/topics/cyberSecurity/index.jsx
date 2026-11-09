@@ -14,7 +14,7 @@ import {
 } from "react-icons/fi";
 
 const CyberSecurity = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sections = useMemo(() => {
         return [
@@ -271,15 +271,19 @@ const CyberSecurity = () => {
                 </div>
 
                 <button
+                    type="button"
                     className={open ? "toggleBtn open" : "toggleBtn"}
                     onClick={() => setOpen((v) => !v)}
+                    aria-expanded={open}
+                    aria-controls="security-content"
+                    title={open ? "Collapse security notes" : "Expand security notes"}
                 >
                     {open ? <FiChevronsUp /> : <FiChevronsDown />}
                     {open ? "Collapse" : "Expand"}
                 </button>
             </div>
 
-            <div className={open ? "content open" : "content"}>
+            <div id="security-content" className={open ? "content open" : "content"} aria-hidden={!open} inert={!open ? "" : undefined}>
                 <div className="grid">
                     {sections.map((sec) => (
                         <div key={sec.id} className="card">

@@ -1,13 +1,13 @@
 # Computer Science Core Notes
 
-A focused React and Vite revision workspace covering essential Computer Science fundamentals with clear mental models and practical subject notes.
+An interactive React and Vite study guide with practical revision notes across core computer science subjects.
 
 ![Computer Science Core Notes screenshot](./screenshot.jpg)
 
 ## Features
 
 - Structured navigation across operating systems, networks, databases, design, security, and more
-- Expandable subject notes designed for quick revision
+- Topic notes load on demand and expand for quick revision
 - Independent study menu and content scrolling
 - Dark and light theme support
 - Responsive layout for desktop and mobile screens
